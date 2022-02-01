@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+
+
+{% if request.user.is_teacher %}
+    Soy profesor
+{% endif %}
+
+{% if request.user.is_student %}
+    Soy estudiante
+{% endif %}
+{% endblock content %}
