@@ -21,13 +21,17 @@ class Student(models.Model):
         verbose_name_plural = _("Estudiantes")
 
     def __str__(self):
-        return self.user.first_name
+        return self.user.first_name + ' ' +self.user.last_name
     
 
 
 
 class Teacher(models.Model):
     user = models.OneToOneField(CustomUser,on_delete=models.CASCADE)
+
     class Meta:
         verbose_name = _("Profesor")
         verbose_name_plural = _("Profesores")
+        
+    def __str__(self):
+        return self.user.first_name + ' ' +self.user.last_name    

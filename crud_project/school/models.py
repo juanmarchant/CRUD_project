@@ -14,3 +14,7 @@ class SchoolYear(models.Model):
     class Meta:
         verbose_name = _("Año Escolar")
         verbose_name_plural = _("Años Escolares")
+    
+    def __str__(self):
+        return self.name
+    

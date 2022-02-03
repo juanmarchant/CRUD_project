@@ -4,7 +4,7 @@ from .models import SchoolYear
 
 
 class CustomSchoolAdmin(admin.ModelAdmin):
-    list_display = ('name',)
+    list_display = ('name','head_teacher')
 
 admin.site.register(SchoolYear, CustomSchoolAdmin)
 
