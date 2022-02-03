@@ -12,3 +12,22 @@ class CustomUser(AbstractUser):
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username','password']
+
+
+class Student(models.Model):
+    user = models.OneToOneField(CustomUser,on_delete=models.CASCADE)
+    class Meta:
+        verbose_name = _("Estudiante")
+        verbose_name_plural = _("Estudiantes")
+
+    def __str__(self):
+        return self.user.first_name
+    
+
+
+
+class Teacher(models.Model):
+    user = models.OneToOneField(CustomUser,on_delete=models.CASCADE)
+    class Meta:
+        verbose_name = _("Profesor")
+        verbose_name_plural = _("Profesores")

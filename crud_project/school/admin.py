@@ -8,3 +8,5 @@ class CustomSchoolAdmin(admin.ModelAdmin):
 
 admin.site.register(SchoolYear, CustomSchoolAdmin)
 
+# admin.site.register(Stude)
+
