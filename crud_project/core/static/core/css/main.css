@@ -1,0 +1,32 @@
+input, select, textarea, .navbar-toggler, .btn-close, .accordion-button:focus{
+    box-shadow: none !important;
+}
+
+.border-5r-solid{
+    border: 1px solid #BBBBBB;
+    border-radius: 5px;
+}
+
+.btn-blue{
+    background-color: #4154F1 ;
+    color: white;
+}
+
+.fw-600{
+    font-weight: 600;
+}
+
+.texty-lightblue{
+    color: #4154F1 !important ;
+}
+
+.texty-lessblue{
+    color: #004CD2 !important; 
+}
+
+.texty-blue{
+    color: #012970 !important;
+}
+.shadow-me{
+    box-shadow: 0px 0px 30px rgba(65, 84, 241, 0.2);
+}

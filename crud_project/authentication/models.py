@@ -7,8 +7,8 @@ from django.utils.translation import gettext as _
 #  Teacher, Student
 class CustomUser(AbstractUser):
     email = models.EmailField(max_length=150, unique=True)
-    is_student = models.BooleanField(_('student status'), default=False)
-    is_teacher = models.BooleanField(_('teacher status'), default=False)
+    is_student = models.BooleanField(_('Estudiante'), default=False, help_text='Indica que este usuario es estudiante')
+    is_teacher = models.BooleanField(_('Profesor'), default=False, help_text='Indica que este usuario es profesor')
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username','password']

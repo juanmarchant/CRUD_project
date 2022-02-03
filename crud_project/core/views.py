@@ -1,7 +1,8 @@
 from django.views.generic.base import TemplateView
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 
-# from articles.models import Article
-
+@method_decorator(login_required, name='dispatch')
 class HomePageView(TemplateView):
 
     template_name = "core/home.html"
