@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext as _
+from school.models import SchoolYear
 # Create your models here.
 
 
@@ -16,6 +17,7 @@ class CustomUser(AbstractUser):
 
 class Student(models.Model):
     user = models.OneToOneField(CustomUser,on_delete=models.CASCADE)
+    school_year = models.ForeignKey(SchoolYear, verbose_name=_("Año Escolar"), on_delete=models.CASCADE, null=True)
     class Meta:
         verbose_name = _("Estudiante")
         verbose_name_plural = _("Estudiantes")
