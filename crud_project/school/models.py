@@ -28,6 +28,7 @@ class Course(models.Model):
     class Meta:
         verbose_name = _('Asignatura')
         verbose_name_plural = _('Asignaturas')
+        ordering = ['school_year']
     
     def __str__(self):
         return self.name

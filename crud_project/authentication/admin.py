@@ -32,9 +32,7 @@ class CustomUserAdmin(UserAdmin):
                 )
         }),
     )
-
-
-
+    
 admin.site.register(get_user_model(), CustomUserAdmin)
 
 
@@ -55,8 +53,6 @@ class GetNamesAdmin(admin.ModelAdmin):
     get_first_name.short_description = 'Nombre'
     get_last_name.short_description = 'Apellidos'
     teacher_or_student.short_description = 'Curso'
-    
-
     
 admin.site.register(Student, GetNamesAdmin)
 admin.site.register(Teacher, GetNamesAdmin)

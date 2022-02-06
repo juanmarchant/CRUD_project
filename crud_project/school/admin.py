@@ -4,14 +4,18 @@ from .models import SchoolYear, Course
 
 
 class CustomSchoolAdmin(admin.ModelAdmin):
-    list_display = ('name','head_teacher',)
+    list_display = ('name','head_teacher')
+    
+
 
 class CustomCourseAdmin(admin.ModelAdmin):
-    list_display = ('name','school_year','students')
+    list_display = ('name','school_year','estudiantes')
 
-    def students(self, obj):
-        return "\n".join([p.user.first_name for p in obj.students_who_join.all()])
-        pass
+    def estudiantes(self, obj):
+        students = ",\n".join([p.user.first_name+ ' ' +p.user.last_name  for p in obj.students_who_join.all()])
+        return students
+    
+
 admin.site.register(SchoolYear, CustomSchoolAdmin)
 admin.site.register(Course, CustomCourseAdmin)
 

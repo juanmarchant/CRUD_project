@@ -17,13 +17,15 @@ class CustomUser(AbstractUser):
 
 class Student(models.Model):
     user = models.OneToOneField(CustomUser,on_delete=models.CASCADE)
-    school_year = models.ForeignKey(SchoolYear, verbose_name=_("Año Escolar"), on_delete=models.CASCADE, null=True)
+    school_year = models.ForeignKey(SchoolYear, verbose_name=_("Año Escolar"),on_delete=models.CASCADE, null=True)
+
     class Meta:
         verbose_name = _("Estudiante")
         verbose_name_plural = _("Estudiantes")
+        ordering = ['school_year__order']
 
     def __str__(self):
-        return self.user.first_name + ' ' +self.user.last_name
+        return self.user.first_name + ' ' + self.user.last_name
     
 
 
@@ -36,4 +38,4 @@ class Teacher(models.Model):
         verbose_name_plural = _("Profesores")
         
     def __str__(self):
-        return self.user.first_name + ' ' +self.user.last_name    
+        return self.user.first_name + ' ' + self.user.last_name    
