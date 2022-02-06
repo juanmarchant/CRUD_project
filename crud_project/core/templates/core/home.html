@@ -5,7 +5,7 @@
 
 
 {% if request.user.is_teacher %}
-<div class="container-fluid pt-4">
+{% comment %} <div class="container-fluid pt-4">
     <div class="accordion" id="accordionExample">
         <div class="accordion-item mb-3">
             <h2 class="accordion-header" id="headingOne">
@@ -85,14 +85,25 @@
             </div>
         </div>
     </div>
-</div>
+</div> {% endcomment %}
 
-{% for user  in users %}
-    {{user.first_name}}
-{% endfor %}
+
 {% endif %}
 
 {% if request.user.is_student %}
     Soy estudiante
 {% endif %}
+
+{% for course in courses %}
+    {{ course.name }}:
+    <ul>
+        {% for student in course.students_who_join.all %}
+            <li>
+                {{ student }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endfor %}
+
+
 {% endblock content %}

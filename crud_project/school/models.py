@@ -20,7 +20,8 @@ class SchoolYear(models.Model):
 
 class Course(models.Model):
     name = models.CharField(('Nombre'),max_length=100)
-    student = models.ForeignKey(to='authentication.Student',verbose_name='Estudiantes' , on_delete=models.CASCADE, null=True)
+    school_year =  models.ForeignKey(SchoolYear, verbose_name=_("Curso"), on_delete=models.CASCADE, null=True, blank=True)
+    students_who_join = models.ManyToManyField(to='authentication.Student', verbose_name='Estudiantes',related_name='member_students')
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True)
     

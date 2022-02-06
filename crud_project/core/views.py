@@ -3,6 +3,7 @@ from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 
 from authentication.models import Student, CustomUser
+from school.models import Course
 
 @method_decorator(login_required, name='dispatch')
 class HomePageView(TemplateView):
@@ -13,7 +14,8 @@ class HomePageView(TemplateView):
         context = super().get_context_data(**kwargs)
 
         context= {
-                'users': CustomUser.objects.all(),
+                'courses': Course.objects.all(),
             }
-        # print(context['user'].is_student)
+        # curso = context['courses']
+        # print(context['courses'].name)
         return context
