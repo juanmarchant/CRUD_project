@@ -28,8 +28,6 @@ class Student(models.Model):
         return self.user.first_name + ' ' + self.user.last_name
     
 
-
-
 class Teacher(models.Model):
     user = models.OneToOneField(CustomUser,on_delete=models.CASCADE)
 
